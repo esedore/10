@@ -10,23 +10,46 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://esedore:88eric88@cluster0.vbnij.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
-  const db = client.db("SRT621").collection("books");
-  db.listCollections().toArray().then((docs) => {
-      console.log('Available collections:');
-      docs.forEach((doc, idx, array) => { console.log(doc.name) });
+  const db = client.db("SRT621");
+  let collection = db.collection("books");
+  let b1Query = {book:'Neuromancer'}
+  let b2Query = {book:'The Way of Kings'}
+  let b3Query = {book:'The Sandman: Preludes & Nocturnes'}
+  collection.findOne(b1Query).then(doc => {
 
-  }).catch((err) => {
+    console.log(doc);
 
-      console.log(err);
-  }).finally(() => {
+}).catch((err) => {
 
-      client.close();
-  });
+    console.log(err);
+})
+
+collection.findOne(b2Query).then(doc => {
+
+  console.log(doc);
+
+}).catch((err) => {
+
+  console.log(err);
+})
+
+collection.findOne(b3Query).then(doc => {
+
+  console.log(doc);
+
+}).catch((err) => {
+
+  console.log(err);
+}).finally(() => {
+
+  client.close();
+});
+
 });
 
 app.set('views', path.join(__dirname, 'html'));
 app.use(express.static(path.join(__dirname,'public')));
-app.use(express.static(path.join(__dirname+"controllers")));
+app.use(express.static(path.join(__dirname,"controllers")));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.set('view engine', 'ejs');

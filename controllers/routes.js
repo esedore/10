@@ -11,13 +11,13 @@ app.use(express.static(__dirname+"controllers"));
 router.get('/home',function(req,res){
     res.sendFile(path.join(__dirname,'../views/home.html'));
 })
-router.get('/images/1',function(req,res){
+router.get('/books/1',function(req,res){
     res.sendFile(path.join(__dirname,'../views/1.html'));
 })
-router.get('/images/2',function(req,res){
+router.get('/books/2',function(req,res){
     res.sendFile(path.join(__dirname,'../views/2.html'));
 })
-router.get('/images/3',function(req,res){
+router.get('/books/3',function(req,res){
     res.sendFile(path.join(__dirname,'../views/3.html'));
 })
 
