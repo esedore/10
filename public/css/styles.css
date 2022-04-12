@@ -1,24 +1,5 @@
-.gallery {
-    padding-top: 25px;
-    padding-left: 5%;
-    display: flex;
-    align-items: center;
-    margin: auto;
-}
-.gallery li img{
-    display: inline-block;
-    width: 60%;
-    height: auto;
-    border: 2px solid rgb(0, 0, 0);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-.img {
-    display: inline-block;
-    width: 100%;
-    height: auto;
-}
 body {
-    background: linear-gradient(-45deg, #518b7d, #443bc9, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #518b7d, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
@@ -33,16 +14,6 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
-}
-.fullImg{
-    position: absolute;
-    list-style-type: none;
-    text-decoration: none;
-    text-align: center;
-    top: -100px;
-    Transform: scale(0.75);
-    border: 4px solid rgb(0, 0, 0);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .backLink {
     text-decoration: none;
@@ -62,10 +33,37 @@ body {
     border: 2px solid rgb(0, 0, 0);
     align: center;
 }
-ul {
-    text-align: center;
-    }
-    
-    li {
-    display: inline-block;
-    }
+.bookTable {
+    margin-top: 20px;
+    padding: 10px 10px;
+    background-color: gray;
+    border: 2px solid rgb(0, 0, 0);
+}
+.book1{
+    background-color: #fff;
+    border: 2px solid rgb(0, 0, 0);
+}
+.book2{
+    background-color: #fff;
+    border: 2px solid rgb(0, 0, 0);
+}
+.book3{
+    background-color: #fff;
+    border: 2px solid rgb(0, 0, 0);
+}
+.bookTitle{
+    background-color: #fff;
+    border: 2px solid rgb(0, 0, 0);
+}
+.bookDetail{
+    background-color: gray;
+    border: 2px solid rgb(0, 0, 0)
+}
+.d1{
+    background-color: #fff;
+    border: 2px solid rgb(0, 0, 0);
+}
+.d2{
+    background-color: #fff;
+    border: 2px solid rgb(0, 0, 0);
+}
