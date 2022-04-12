@@ -3,10 +3,6 @@ const hostname = '127.0.0.1';
 const port = 3000;
 const routes = require('./controllers/routes.js');
 const express = require('express');
-var jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-const document = (new JSDOM('')).window;
-global.document = document;
 const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
@@ -20,10 +16,10 @@ client.connect(err => {
   let b1Query = {book:'Neuromancer'}
   let b2Query = {book:'The Way of Kings'}
   let b3Query = {book:'The Sandman: Preludes & Nocturnes'}
-  collection.findOne(b1Query).then(book1 => {
-    console.log(book1);
+collection.findOne(b1Query).then(book1 => {
+  console.log(book1);
 }).catch((err) => {
-    console.log(err);
+  console.log(err);
 })
 collection.findOne(b2Query).then(book2 => {
   console.log(book2);
