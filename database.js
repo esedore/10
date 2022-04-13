@@ -1,7 +1,8 @@
-const dotenv = require('dotenv');
-dotenv.config()
+require('dotenv').config();
 var mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.vbnij.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {useNewUrlParser: true});
+const URI = process.env.URI;
+mongoose.connect(URI, {useNewUrlParser: true});
+
 var conn = mongoose.connection;
 conn.on('connected', function() {
     console.log('database is connected successfully');

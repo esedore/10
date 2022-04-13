@@ -1,18 +1,39 @@
 const http = require('http');
 const hostname = '127.0.0.1';
 const port = 3000;
-const dotenv = require('dotenv');
-const routes = require('./controllers/routes.js');
+require('dotenv').config();
+const URI = process.env.URI;
+var mongoose = require('mongoose');
+const routes = require('./controllers/routes');
 const express = require('express');
+  app = express();
+app.set(port);
+app.use(
+  express.urlencoded({
+    extended: false,
+  })
+);
+app.use(express.json());
+mongoose.connect(URI,{useUnifiedTopology: true});
+const db = mongoose.connection;
 const path = require('path');
-const app = express();
-const {Book} = require('./model/book');
+const book = require('./model/book');
+const bookController = require('./controllers/bookController')
+const conn = require('./database.js');
+
 app.set("view engine", "ejs");
 
-let dbBook1 =  Book.findOne({book:"Neuromancer"}).exec();
-let dbBook2 =  Book.findOne({book:"The Way of Kings"}).exec();
-let dbBook3 =  Book.findOne({book:"The Sandman: Preludes & Nocturnes"}).exec();
-console.log(dbBook1, dbBook2, dbBook3);
+app.get(
+  "/home",
+  bookController.getBook,
+  (req, res, next) => {
+    console.log(req.data);
+    res.send(req.data);
+  }
+);
+
+const bookCollection = conn.collection('books');
+console.log('Collection name: ', bookCollection.name);
 app.set('views', path.join(__dirname, 'html'));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.static(path.join(__dirname,"controllers")));
@@ -21,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.render('index.ejs',{})
+  res.render('index.js',{})
   res.send('');
 });
 
