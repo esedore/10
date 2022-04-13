@@ -34,7 +34,7 @@ app.get(
   }
 );
 
-app.POST(
+app.get(
   "/books/1",
   bookController.book1,
   (req, res, next) => {
@@ -43,7 +43,7 @@ app.POST(
   }
 );
 
-app.POST(
+app.get(
   "/books/2",
   bookController.book2,
   (req, res, next) => {
@@ -52,7 +52,7 @@ app.POST(
   }
 );
 
-app.POST(
+app.get(
   "/books/3",
   bookController.book3,
   (req, res, next) => {

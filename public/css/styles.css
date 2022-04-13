@@ -42,31 +42,3 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-.book1{
-    background-color: #fff;
-    border: 2px solid rgb(0, 0, 0);
-}
-.book2{
-    background-color: #fff;
-    border: 2px solid rgb(0, 0, 0);
-}
-.book3{
-    background-color: #fff;
-    border: 2px solid rgb(0, 0, 0);
-}
-.bookTitle{
-    background-color: #fff;
-    border: 2px solid rgb(0, 0, 0);
-}
-.bookDetail{
-    background-color: gray;
-    border: 2px solid rgb(0, 0, 0)
-}
-.d1{
-    background-color: #fff;
-    border: 2px solid rgb(0, 0, 0);
-}
-.d2{
-    background-color: #fff;
-    border: 2px solid rgb(0, 0, 0);
-}
