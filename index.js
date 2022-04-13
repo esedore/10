@@ -6,7 +6,6 @@ const routes = require('./controllers/routes');
 const path = require('path');
 const Book = require('./model/book');
 const bookController = require('./controllers/bookController')
-const conn = require('./database.js');
 const express = require('express'),
   app = express();
 app.set(port);
