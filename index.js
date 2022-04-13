@@ -24,43 +24,33 @@ const db = mongoose.connection;
 db.once("open", () => {
   console.log("Goose Connected");
 })
-
-app.get(
-  "/home",
+app.get("/home",
   bookController.getBook,
   (req, res, next) => {
     console.log(req.data);
     res.render("book",{books:req.data});
-  }
-);
+});
 
-app.get(
-  "/books/1",
+app.get("/books/1",
   bookController.book1,
   (req, res, next) => {
     console.log(req.data);
     res.render("book1",{book1:req.data});
-  }
-);
+});
 
-app.get(
-  "/books/2",
+app.get("/books/2",
   bookController.book2,
   (req, res, next) => {
     console.log(req.data);
     res.render("book2",{book2:req.data});
-  }
-);
+});
 
-app.get(
-  "/books/3",
+app.get("/books/3", 
   bookController.book3,
   (req, res, next) => {
     console.log(req.data);
     res.render("book3",{book3:req.data});
-  }
-);
-
+});
 app.listen(3000, () => {
   console.log('listening on port 3K');
 });

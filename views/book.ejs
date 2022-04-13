@@ -1,9 +1,8 @@
-<link href="/public/css/styles.css" rel="stylesheet" type="text/css"">
+<link href="../public/css/styles.css" rel="stylesheet" type="text/css"">
 <h class="header">Click on any book to see the details</h>
 <% for(var i=0;i<books.length;i++){ %>
-    <a href="localhost:3000/books/<%-[i+1]%>">
     <div>
-    <p class="bookTable" style=""><%= books[i].book %> </p>  
+    <p> <a href="books/<%-[i+1]%>"><%= books[i].book %></a> </p>  
     </div>
     </a>
 <% } %>
