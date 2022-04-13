@@ -1,0 +1,8 @@
+<h>Click on any book to see the details</h>
+<% for(var i=0;i<books.length;i++){ %>
+    <a href="localhost:3000/books/<%-[i+1]%>">
+    <div>
+    <h1><%= books[i].book %> </h1>  
+    </div>
+    </a>
+    <% } %>

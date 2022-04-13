@@ -1,11 +1,13 @@
-const http = require('http');
-const hostname = '127.0.0.1';
 const port = 3000;
 require('dotenv').config();
 const URI = process.env.URI;
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const routes = require('./controllers/routes');
-const express = require('express');
+const path = require('path');
+const Book = require('./model/book');
+const bookController = require('./controllers/bookController')
+const conn = require('./database.js');
+const express = require('express'),
   app = express();
 app.set(port);
 app.use(
@@ -13,41 +15,52 @@ app.use(
     extended: false,
   })
 );
+
+app.set("view engine", "ejs");
+
 app.use(express.json());
 mongoose.connect(URI,{useUnifiedTopology: true});
 const db = mongoose.connection;
-const path = require('path');
-const book = require('./model/book');
-const bookController = require('./controllers/bookController')
-const conn = require('./database.js');
-
-app.set("view engine", "ejs");
+db.once("open", () => {
+  console.log("Goose Connected");
+})
 
 app.get(
   "/home",
   bookController.getBook,
   (req, res, next) => {
     console.log(req.data);
-    res.send(req.data);
+    res.render("book",{books:req.data});
   }
 );
 
-const bookCollection = conn.collection('books');
-console.log('Collection name: ', bookCollection.name);
-app.set('views', path.join(__dirname, 'html'));
-app.use(express.static(path.join(__dirname,'public')));
-app.use(express.static(path.join(__dirname,"controllers")));
-app.use(express.static(path.join(__dirname, 'node_modules')));
+app.POST(
+  "/books/1",
+  bookController.book1,
+  (req, res, next) => {
+    console.log(req.data);
+    res.render("book1",{book1:req.data});
+  }
+);
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.render('index.js',{})
-  res.send('');
-});
+app.POST(
+  "/books/2",
+  bookController.book2,
+  (req, res, next) => {
+    console.log(req.data);
+    res.render("book2",{book2:req.data});
+  }
+);
 
-app.use('/',routes);
+app.POST(
+  "/books/3",
+  bookController.book3,
+  (req, res, next) => {
+    console.log(req.data);
+    res.render("book3",{book3:req.data});
+  }
+);
 
 app.listen(3000, () => {
-    console.log('listening on port 3K');
+  console.log('listening on port 3K');
 });
