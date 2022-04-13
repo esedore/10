@@ -22,7 +22,7 @@ app.use(express.json());
 mongoose.connect(URI,{useUnifiedTopology: true});
 const db = mongoose.connection;
 db.once("open", () => {
-  console.log("Goose Connected");
+  console.log("Mongoose Connected");
 })
 app.get("/home",
   bookController.getBook,
